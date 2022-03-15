@@ -1,0 +1,18 @@
+---
+- hosts: is_python
+
+  tasks:
+   - win_file:
+        path: C:\Apps
+        state: directory
+
+   - win_copy:
+        src: /home/jdaadmin/Anaconda3-2019.03-Windows-x86_64.exe
+        dest: C:\
+        force: no
+
+   - win_package:
+        path: C:\Anaconda3-2019.03-Windows-x86_64.exe
+        product_id: 'Anaconda3 2019.03(Python 3.7.3 64-bit)'
+        arguments: '/S /D=C:\Apps'
+

@@ -1,0 +1,21 @@
+---
+- hosts: is_python
+
+  tasks:
+
+   - win_file:
+        path: C:\Spark\Downloads
+        state: directory
+   - win_copy:
+        src: /home/jdaadmin/spark-2.4.4-bin-hadoop2.6.tgz
+        dest: C:\Spark\Downloads\spark-2.4.4.gz
+        force: no
+   - win_shell: tar -xf C:\Spark\Downloads\spark-2.4.4.gz -C C:\Spark\
+
+   - win_path:
+        state: present
+        name: SPARK_HOME
+        elements: C:\Spark\Spark
+        scope: user
+~
+

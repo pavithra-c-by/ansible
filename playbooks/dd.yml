@@ -1,0 +1,22 @@
+---
+- hosts: is_python
+
+
+  tasks:
+
+    - win_file:
+        path: C:\IS
+        state: directory
+
+    - win_copy:
+       src: /home/jdaadmin/pythonplaybooks/4_DataDoctor_Package.zip
+       dest: C:\
+
+
+    - win_shell: tar -xf C:\4_DataDoctor_Package.zip -C C:\IS
+
+    - win_shell: (Get-Content 'C:\IS\4_DataDoctor_Package\is-validation-service(dd)-2022.0.1-1-python\config\ddconfig.yaml') -replace "Validation-topic","Valid" | Set-Content 'C:\IS\4_DataDoctor_Package\is-validation-service(dd)-2022.0.1-1-python\config\ddconfig.yaml' -Verbos
+
+
+
+

@@ -1,0 +1,17 @@
+---
+- hosts: is_python
+
+
+  tasks:
+
+   - win_file:
+        path: C:\IS
+        state: directory
+
+   - win_copy:
+       src: /home/jdaadmin/pythonplaybooks/IS-EL-SERVICE_2021.1.0-83.zip
+       dest: C:\
+
+
+   - win_shell: tar -xf C:\IS-EL-SERVICE_2021.1.0-83.zip  -C C:\IS
+

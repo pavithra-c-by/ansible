@@ -1,0 +1,13 @@
+---
+- hosts: is_python
+
+
+  tasks:
+
+   - win_copy:
+        src: /home/jdaadmin/msodbcsql.msi
+        dest: C:\
+
+   - win_shell: cmd.exe /c msiexec /qn /i "c:\msodbcsql.msi" IACCEPTMSODBCSQLLICENSETERMS=YES
+
+

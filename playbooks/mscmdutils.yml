@@ -1,0 +1,11 @@
+---
+- hosts: is_python
+
+  tasks:
+
+   - win_copy:
+        src: /home/jdaadmin/MsSqlCmdLnUtils.msi
+        dest: C:\
+
+   - win_shell: msiexec /i "MsSqlCmdLnUtils.msi" /passive IACCEPTMSSQLCMDLNUTILSLICENSETERMS=YES
+
